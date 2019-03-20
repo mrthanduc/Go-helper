@@ -1,6 +1,6 @@
 # Go-helper
 
-Helper like Undersocer for Golang:
+Helper like Underscore for Golang:
 
 Find
 
