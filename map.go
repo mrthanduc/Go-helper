@@ -3,7 +3,6 @@ package helper
 import "reflect"
 
 type hamInt3 func(int) int
-type ham3 func(int) int
 
 //function types
 type mapf func(interface{}) interface{}
@@ -28,7 +27,6 @@ func Map(arr interface{}, predicate interface{}) interface{} {
 		item := v.Index(i)
 		in := []reflect.Value{item}
 		out := funcValue.Call(in)
-		// result := out[i]
 		result := out
 		return result	
 	}

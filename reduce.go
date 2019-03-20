@@ -1,6 +1,7 @@
 package helper
 
 import "reflect"
+
 type hamreduce func(int,int) int
 
 // func(value, memo) interface

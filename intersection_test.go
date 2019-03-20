@@ -12,9 +12,6 @@ func TestIntersectionString (t *testing.T){
 	result := Intersection2(slice1,slice2)
 	expected := []string{"foo", "bar","bao"}
 
-	//https://yourbasic.org/golang/compare-slices/
-	//For testing purposes, you may want to use reflect.DeepEqual. It compares two elements of any type recursively.
-
 	if !reflect.DeepEqual(result, expected) {
 		t.Error (" Bi sai roi")
 	}
@@ -26,9 +23,6 @@ func TestIntersectionInt (t *testing.T){
 	
 	result := Intersection1(slice1,slice2)
 	expected := []int{1,2}
-
-	//https://yourbasic.org/golang/compare-slices/
-	//For testing purposes, you may want to use reflect.DeepEqual. It compares two elements of any type recursively.
 
 	if !reflect.DeepEqual(result, expected) {
 		t.Error (" Bi sai roi")
