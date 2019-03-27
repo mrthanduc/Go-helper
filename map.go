@@ -16,8 +16,8 @@ func MapInt(list []int, ham hamInt3) []int {
 	return result
 }
 
-//Map ham anh xa
-func Map(arr interface{}, predicate interface{}) interface{} {
+//Map3 ham anh xa
+func Map3(arr interface{}, predicate interface{}) interface{} {
 	// var result []interface{}
 	v := reflect.ValueOf(arr)
 	funcValue := reflect.ValueOf(predicate)
@@ -43,4 +43,28 @@ func Map2 (in interface{}, fn mapf) interface{} {
 	}
 
 	return result
+}
+
+//Map bai sua cua thay
+func Map(list interface{}, iterateeFunc interface{}) interface{} {
+	listValue := reflect.ValueOf(list)
+	listType := listValue.Type()
+	listKind := listType.Kind()  // check kiểu dữ liệu của list
+
+	iterateeFuncValue := reflect.ValueOf(iterateeFunc)
+	typeOfResult := reflect.SliceOf(iterateeFuncValue.Type().Out(0))
+	result := reflect.MakeSlice(typeOfResult, 0, 0)
+
+
+	// Xác định xem list có phải là Slice hay Array không 
+	if listKind == reflect.Slice || listKind == reflect.Array {
+		for i := 0; i < listValue.Len(); i++ {
+			elem := listValue.Index(i)
+			in := []reflect.Value{elem}
+			out := iterateeFuncValue.Call(in)[0]
+			result = reflect.Append(result, out)
+		}
+
+	}
+	return result.Interface()
 }
